@@ -132,3 +132,7 @@ ln -sfn "$PWD" ~/.local/share/maki/site/pack/dev/start/maki-token-metrics
 ```
 
 Run `/reload` after each edit.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
