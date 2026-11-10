@@ -1,0 +1,22 @@
+# maki package manifest. See https://maki.sh/docs/packages/
+# A package keeps only what this file names.
+
+min_maki_version = "0.7.1"
+
+[permissions]
+# maki.env.config_dir(), maki.env.legacy_dir(), maki.fs.read(): to find the
+# provider's base_url in providers.toml.
+fs_read = true
+# maki.uv.os_getenv(): <SLUG>_BASE_URL.
+env = true
+# maki.net.request(): the scrape of <origin>/metrics.
+net = true
+# The panel only needs to know that a turn started, and it reads nothing from the
+# event. It still subscribes to TurnStart, whose `text` is conversation content,
+# and maki withholds that and warns in the status bar unless the key is here.
+session_read = true
+
+# No net_hosts list. The metrics endpoint is the user's own server, read from
+# providers.toml or <SLUG>_BASE_URL, so no manifest written in advance could name
+# it. Narrow it in your own copy if you want a fixed endpoint:
+# net_hosts = ["fender.lan"]

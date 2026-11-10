@@ -1,4 +1,6 @@
-local PLUGIN = "/home/gab/test/maki-plugins/token-metrics/token_metrics.lua"
+-- Run with: lua5.1 tests/harness.lua
+local here = debug.getinfo(1, "S").source:match("^@?(.*/)") or "./"
+local PLUGIN = here .. "../plugin/init.lua"
 
 local scrape_v29 = [[
 # HELP vllm:generation_tokens_total Number of generation tokens.
